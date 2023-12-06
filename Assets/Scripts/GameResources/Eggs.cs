@@ -4,9 +4,7 @@ namespace GameResources
 {
     public class Eggs : MonoBehaviour
     {
-
-        public int _goldValue;
-        
-
+        public int _eggValue;
+        public int _experience;
     }
 }

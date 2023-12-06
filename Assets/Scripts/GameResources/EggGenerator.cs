@@ -15,7 +15,7 @@ namespace GameResources
 
         public Eggs HoldingItem { get; set; }
 
-        private void Start ()
+        private void Start()
         {
             m_generateTime = _receipt._GenerateTime;
             StartGenerator();
@@ -56,10 +56,14 @@ namespace GameResources
             m_currentBehavior = null;
         }
 
+        public void Restart()
+        {
+            StartGenerator();
+        }
 
         private void OnEnable()
         {
-            
+
         }
 
         private void OnDisable()

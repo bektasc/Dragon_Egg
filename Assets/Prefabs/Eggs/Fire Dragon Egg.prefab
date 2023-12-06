@@ -13,8 +13,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 4a58aa53157d3b64e8f241fc20efe55f, type: 2}
     - target: {fileID: 2549773718031093404, guid: ce5dad8f2b73e95468a3c91318d52d1d, type: 3}
+      propertyPath: _eggValue
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 2549773718031093404, guid: ce5dad8f2b73e95468a3c91318d52d1d, type: 3}
       propertyPath: _goldValue
       value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 2549773718031093404, guid: ce5dad8f2b73e95468a3c91318d52d1d, type: 3}
+      propertyPath: _experience
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 3810005821311156327, guid: ce5dad8f2b73e95468a3c91318d52d1d, type: 3}
       propertyPath: m_Name

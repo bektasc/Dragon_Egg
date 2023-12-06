@@ -5,8 +5,10 @@ using UnityEngine;
 public class Shop : MonoBehaviour
 {
     [SerializeField] private ScriptableEvent _flameChange;
+    [SerializeField] private ScriptableEvent _expChange;
     [SerializeField] private IntegerValue _flameValue;
- 
+    [SerializeField] private IntegerValue _expValue;
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -20,9 +22,12 @@ public class Shop : MonoBehaviour
 
     private void SellItem(Eggs item)
     {
-        Debug.Log($"Sold item for {item._goldValue} gold");
-        _flameValue.value += item._goldValue;
+        Debug.Log($"Sold item for {item._eggValue} flame!");
+        _flameValue.value += item._eggValue;
         _flameChange.InvokeAction();
+
+        _expValue.value = item._experience;
+        _expChange.InvokeAction();
         Destroy(item.gameObject);
     }
 }

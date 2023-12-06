@@ -18,5 +18,6 @@ public class PlayerInteraction : MonoBehaviour
         generator.HoldingItem.transform.parent = _holdingPoint;
         HoldingItem = generator.HoldingItem;
         generator.HoldingItem = null;
+        generator.Restart();
     }
 }
