@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Joystick _joystick;
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private float _movementSpeed;
+    [SerializeField] private Animator _animator;
 
     private float _horizontal;
     private float _vertical;
@@ -26,8 +27,32 @@ public class PlayerMovement : MonoBehaviour
         Vector3 movementVector = _movementSpeed * Time.fixedDeltaTime * _vector3;
         
         _rb.velocity = movementVector;
+
         if (movementVector != Vector3.zero)
+        {
             transform.rotation = Quaternion.LookRotation(movementVector);
+            _animator.SetBool("isWalking", true);
+        }
+
+        if (!TryGetComponent(out PlayerInteraction player)) return;
+
+        if (player.HoldingItem != null)
+        {
+                _animator.SetBool("isWalking", false);
+                _animator.SetBool("isCarryingEgg", true);
+        }
+
+        if (player.HoldingItem == null)
+        {
+            _animator.SetBool("isWalking", true);
+            _animator.SetBool("isCarryingEgg", false);
+        }
+
+        if (movementVector == Vector3.zero)
+        {
+            _animator.SetBool("isWalking", false);
+            _animator.SetBool("isCarryingEgg", false);
+        }          
     }
 
     private void GetMovementInputs()
@@ -35,13 +60,4 @@ public class PlayerMovement : MonoBehaviour
         _horizontal = _joystick.Horizontal;
         _vertical = _joystick.Vertical;
     }
-    
-    /*private void Movement()
-    {  
-        Vector3 movementVector = new Vector3(_joystick.Horizontal, 0, _joystick.Vertical);
-
-        if (movementVector != Vector3.zero)
-            transform.rotation = Quaternion.LookRotation(movementVector);
-
-        //transform.position += _movementSpeed * Time.deltaTime * movementVector;*/
 }

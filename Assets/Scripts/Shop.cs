@@ -22,7 +22,7 @@ public class Shop : MonoBehaviour
 
     private void SellItem(Eggs item)
     {
-        Debug.Log($"Sold item for {item._eggValue} flame!");
+        //Debug.Log($"Sold item for {item._eggValue} flame!");
         _flameValue.value += item._eggValue;
         _flameChange.InvokeAction();
 
