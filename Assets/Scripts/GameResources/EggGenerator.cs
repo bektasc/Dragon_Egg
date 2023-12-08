@@ -68,7 +68,7 @@ namespace GameResources
 
         private void CallProbability()
         {
-            if (_receipt._eggs.name == "Wind Dragon Egg") probability = Random.Range(6, 8);
+            if (_receipt._eggs.name == "Wind Dragon Egg") probability = Random.Range(1, 20000);
             if (_receipt._eggs.name == "Sky Dragon Egg") probability = Random.Range(1, 10000);
             if (_receipt._eggs.name == "Soul Dragon Egg") probability = Random.Range(1, 5000);
             if (_receipt._eggs.name == "Fire Dragon Egg") probability = Random.Range(1, 2000);
