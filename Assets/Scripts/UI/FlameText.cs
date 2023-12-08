@@ -10,7 +10,7 @@ public class FlameText : MonoBehaviour
 
     private void Awake()
     {
-        _flameValue.value = 600;
+        _flameValue.value = 50;
     }
     private void Start()
     {

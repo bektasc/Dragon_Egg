@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Wind Dragon Egg
   m_EditorClassIdentifier: 
   _eggs: {fileID: 7968414358432647099, guid: 622828d116425714683b5a71ffa32846, type: 3}
-  _GenerateTime: 5
+  _GenerateTime: 10
