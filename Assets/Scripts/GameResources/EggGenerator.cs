@@ -1,17 +1,20 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace GameResources
 {
     public class EggGenerator : MonoBehaviour
     {
         [SerializeField] private Receipt _receipt;
-        [SerializeField] private Transform _generatePoint;
+        [SerializeField] private Receipt rareEgg;
+        [SerializeField] private Transform _generatePoint;     
 
         private Action m_currentBehavior;
 
         private float m_timer;
         private float m_generateTime;
+        private int probability;
 
         public Eggs HoldingItem { get; set; }
 
@@ -43,7 +46,9 @@ namespace GameResources
 
         private void GenerateItem()
         {
-            HoldingItem = Instantiate(_receipt._eggs, _generatePoint.position, Quaternion.identity);
+            CallProbability();
+            if (probability != 7) HoldingItem = Instantiate(_receipt._eggs, _generatePoint.position, Quaternion.identity);
+            if (probability == 7) HoldingItem = Instantiate(rareEgg._eggs, _generatePoint.position, Quaternion.identity);
         }
 
         private void StartGenerator()
@@ -59,6 +64,14 @@ namespace GameResources
         public void Restart()
         {
             StartGenerator();
+        }
+
+        private void CallProbability()
+        {
+            if (_receipt._eggs.name == "Wind Dragon Egg") probability = Random.Range(6, 8);
+            if (_receipt._eggs.name == "Sky Dragon Egg") probability = Random.Range(1, 10000);
+            if (_receipt._eggs.name == "Soul Dragon Egg") probability = Random.Range(1, 5000);
+            if (_receipt._eggs.name == "Fire Dragon Egg") probability = Random.Range(1, 2000);
         }
 
         private void OnEnable()
